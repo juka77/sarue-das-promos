@@ -8,6 +8,26 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    !function(f, b, e, v, n, t, s) {
+      if (f.fbq) return;
+      n = f.fbq = function() {
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n;
+      n.loaded = true;
+      n.version = '2.0';
+      n.queue = [];
+      t = b.createElement(e);
+      t.async = true;
+      t.src = v;
+      s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s);
+    }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1058165443202577');
+    fbq('track', 'PageView');
+  </script>
   <style>
     :root {
       --bg: #040404;
@@ -978,6 +998,9 @@
   </style>
 </head>
 <body>
+  <noscript>
+    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1058165443202577&ev=PageView&noscript=1" alt="">
+  </noscript>
   <div class="page-shell">
     <header class="hero" id="top">
       <div class="container">
@@ -1167,7 +1190,7 @@
           oldPrice: "De R$399,90",
           price: "R$249,90",
           detail: "Cupom: SARUE30",
-          linkText: "Ver oferta",
+          linkText: "Descubra mais ofertas",
           image: "assets/offers/air-fryer-mondial-6l.png"
         },
         {
@@ -1175,7 +1198,7 @@
           oldPrice: "De R$199,90",
           price: "R$109,90",
           detail: "Queda relâmpago",
-          linkText: "Ver oferta",
+          linkText: "Descubra mais ofertas",
           image: "assets/offers/redmi-buds-4-lite.png"
         },
         {
@@ -1183,7 +1206,7 @@
           oldPrice: "De R$189,90",
           price: "R$139,90",
           detail: "Cupom: PET10",
-          linkText: "Ver oferta",
+          linkText: "Descubra mais ofertas",
           image: "assets/offers/racao-golden-15kg.png"
         }
       ],
