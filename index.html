@@ -1581,7 +1581,10 @@
         entries.forEach((entry) => {
           floating.classList.toggle("is-visible", !entry.isIntersecting);
         });
-      }, { threshold: 0.18 });
+      }, {
+        threshold: 0.35,
+        rootMargin: "0px 0px -180px 0px"
+      });
       observer.observe(hero);
     }
 
