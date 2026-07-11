@@ -923,7 +923,6 @@
     .footer-affiliate {
       color: #d9ca93;
     }
-    }
 
     .floating-cta {
       position: fixed;
@@ -1577,15 +1576,18 @@
     function setupFloatingCta() {
       const hero = document.querySelector(".hero");
       const floating = document.getElementById("floating-cta");
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          floating.classList.toggle("is-visible", !entry.isIntersecting);
-        });
-      }, {
-        threshold: 0.35,
-        rootMargin: "0px 0px -180px 0px"
-      });
-      observer.observe(hero);
+      if (!hero || !floating) {
+        return;
+      }
+
+      const syncFloatingCta = () => {
+        const heroBottom = hero.getBoundingClientRect().bottom;
+        floating.classList.toggle("is-visible", heroBottom < window.innerHeight - 180);
+      };
+
+      syncFloatingCta();
+      window.addEventListener("scroll", syncFloatingCta, { passive: true });
+      window.addEventListener("resize", syncFloatingCta);
     }
 
     function setupMetaPixelTracking() {
