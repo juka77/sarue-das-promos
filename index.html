@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Saruê das Promo</title>
   <meta name="description" content="Achados, cupons e quedas de preço enviados no WhatsApp pelo Saruê das Promo.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -571,7 +572,13 @@
       padding: 10px;
       border-radius: 14px;
       min-height: 236px;
+      display: flex;
+      flex-direction: column;
       transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .offer-card.is-inactive {
+      opacity: 0.86;
     }
 
     .offer-media {
@@ -614,10 +621,36 @@
       font-size: 0.84rem;
     }
 
+    .offer-old.is-striked {
+      text-decoration: line-through;
+    }
+
     .offer-price {
       margin-top: 4px;
       color: var(--primary);
       font-size: 2rem;
+    }
+
+    .offer-description {
+      margin-top: 6px;
+      min-height: 2.7em;
+    }
+
+    .offer-meta {
+      margin-top: auto;
+      padding-top: 10px;
+    }
+
+    .offer-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+      color: #ffe27d;
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
 
     .offer-chip,
@@ -635,6 +668,51 @@
       margin-top: 8px;
       font-size: 0.74rem;
       color: #b7a96d;
+    }
+
+    .offer-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+      min-height: 42px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 238, 173, 0.18);
+      background: linear-gradient(180deg, rgba(255, 215, 57, 0.18) 0%, rgba(255, 190, 0, 0.14) 100%);
+      color: #fff1bb;
+      font-size: 0.84rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      transition: transform 0.22s ease, border-color 0.22s ease, filter 0.22s ease;
+    }
+
+    .offer-cta:hover,
+    .offer-cta:focus-visible {
+      transform: translateY(-2px);
+      border-color: var(--line-strong);
+      filter: brightness(1.05);
+    }
+
+    .offer-cta[aria-disabled="true"] {
+      cursor: not-allowed;
+      opacity: 0.58;
+      pointer-events: none;
+    }
+
+    .flow-note {
+      margin-top: 14px;
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(14, 14, 14, 0.96), rgba(8, 8, 8, 0.98));
+      box-shadow: var(--shadow-md);
+    }
+
+    .flow-note p + p {
+      margin-top: 10px;
     }
 
     .comparison-card {
@@ -809,9 +887,42 @@
 
     footer {
       padding: 18px 16px 88px;
-      text-align: center;
       color: #9c8f63;
       font-size: 0.86rem;
+    }
+
+    .footer-shell {
+      width: min(calc(100% - 28px), var(--content-width));
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 16px;
+      margin-bottom: 14px;
+    }
+
+    .footer-links a {
+      color: #dbc889;
+      font-weight: 700;
+    }
+
+    .footer-links a:hover,
+    .footer-links a:focus-visible {
+      color: #fff2be;
+    }
+
+    .footer-copy {
+      display: grid;
+      gap: 8px;
+    }
+
+    .footer-affiliate {
+      color: #d9ca93;
+    }
     }
 
     .floating-cta {
@@ -1051,6 +1162,11 @@
             <h2 data-config-text="flowTitle">Como funciona</h2>
           </div>
           <div class="flow-grid" id="flow-grid"></div>
+          <div class="flow-note" data-reveal>
+            <p>O Saruê procura promoções e oportunidades em lojas online. Alguns achados também aparecem aqui no site, enquanto as promoções em tempo real são compartilhadas no grupo do WhatsApp.</p>
+            <p>Ao clicar em uma oferta, você é direcionado para o site da loja responsável pela venda.</p>
+            <p>O Saruê não vende produtos, não processa pagamentos e não realiza entregas. Preços, estoque, frete e condições devem ser conferidos diretamente na loja.</p>
+          </div>
         </div>
       </section>
 
@@ -1112,7 +1228,23 @@
       </section>
     </main>
 
-    <footer data-config-text="footerText">Saruê das Promo. Alertas e achados enviados no WhatsApp.</footer>
+    <footer>
+      <div class="footer-shell">
+        <nav class="footer-links" aria-label="Links institucionais">
+          <a href="sobre.html">Sobre nós</a>
+          <a href="como-funciona.html">Como funciona</a>
+          <a href="politica-de-privacidade.html">Política de Privacidade</a>
+          <a href="termos-de-uso.html">Termos de Uso</a>
+          <a href="politica-de-afiliados.html">Política de Afiliados</a>
+          <a href="contato.html">Contato</a>
+        </nav>
+        <div class="footer-copy">
+          <div data-config-text="footerText">Saruê das Promo. Alertas e achados enviados no WhatsApp.</div>
+          <div class="footer-affiliate">Como participante do Programa de Associados da Amazon, sou remunerado pelas compras qualificadas efetuadas.</div>
+          <div>Alguns links deste site são links de afiliado. O Saruê pode receber uma comissão pelas compras qualificadas, sem custo adicional para você.</div>
+        </div>
+      </div>
+    </footer>
 
     <div class="floating-cta" id="floating-cta">
       <a class="cta" data-config-link="whatsappUrl" data-pixel-event="Lead" data-pixel-label="floating_cta" href="#" target="_blank" rel="noreferrer noopener">
@@ -1186,28 +1318,37 @@
       offersDisclaimer: "Exemplos ilustrativos. Ofertas mudam conforme disponibilidade das lojas.",
       offers: [
         {
-          title: "Air Fryer Mondial 6L",
-          oldPrice: "De R$399,90",
-          price: "R$249,90",
-          detail: "Cupom: SARUE30",
-          linkText: "Descubra mais ofertas",
-          image: "assets/offers/air-fryer-mondial-6l.png"
+          id: "oferta-01",
+          title: "Teclado Gamer SteelSeries Apex 7 TKL",
+          description: "Uma opcao compacta para quem busca um teclado gamer com foco em agilidade e uso diario. Confira o preco e as condicoes diretamente na loja.",
+          currentPrice: "",
+          oldPrice: "",
+          image: "assets/offers/steelseries-apex-7-tkl.jpg",
+          affiliateUrl: "https://www.amazon.com.br/dp/B07VFK33Q6?tag=diass0102-20&linkCode=osi&th=1&psc=1",
+          lastCheckedAt: "",
+          active: true
         },
         {
-          title: "Fone Redmi Buds 4 Lite",
-          oldPrice: "De R$199,90",
-          price: "R$109,90",
-          detail: "Queda relâmpago",
-          linkText: "Descubra mais ofertas",
-          image: "assets/offers/redmi-buds-4-lite.png"
+          id: "oferta-02",
+          title: "Placa de video ASUS Dual RTX 5060 Ti 8GB",
+          description: "Uma alternativa para quem esta montando ou atualizando o PC com foco em jogos e desempenho grafico. Confira o preco e as condicoes diretamente na loja.",
+          currentPrice: "",
+          oldPrice: "",
+          image: "assets/offers/asus-rtx-5060-ti.jpg",
+          affiliateUrl: "https://www.amazon.com.br/dp/B0F4DWKRBQ?tag=diass0102-20&linkCode=osi&th=1&psc=1",
+          lastCheckedAt: "",
+          active: true
         },
         {
-          title: "Ração Golden 15kg",
-          oldPrice: "De R$189,90",
-          price: "R$139,90",
-          detail: "Cupom: PET10",
-          linkText: "Descubra mais ofertas",
-          image: "assets/offers/racao-golden-15kg.png"
+          id: "oferta-03",
+          title: "Monitor Gamer Acer Predator XB273K 27\"",
+          description: "Uma opcao para quem procura monitor gamer com alta resolucao e fluidez para diferentes tipos de uso. Confira o preco e as condicoes diretamente na loja.",
+          currentPrice: "",
+          oldPrice: "",
+          image: "assets/offers/acer-predator-xb273k.jpg",
+          affiliateUrl: "https://www.amazon.com.br/dp/B0DTMDVQ9J?tag=diass0102-20&linkCode=osi&th=1&psc=1",
+          lastCheckedAt: "",
+          active: true
         }
       ],
       comparisonTitle: "Comprar no escuro ou <span class='accent'>comprar com alerta?</span>",
@@ -1347,18 +1488,50 @@
 
     function buildOffers() {
       const container = document.getElementById("offers-grid");
-      container.innerHTML = SITE_CONFIG.offers.map((item) => `
-        <article class="offer-card" data-reveal>
+      container.innerHTML = SITE_CONFIG.offers.map((item) => {
+        const hasAffiliateUrl = Boolean(item.active && item.affiliateUrl);
+        const checkedAtText = item.lastCheckedAt
+          ? `<div class="offer-disclaimer">Oferta conferida em ${item.lastCheckedAt}. O preço pode ter mudado.</div>`
+          : "";
+        const priceNotice = item.currentPrice
+          ? `<div class="offer-disclaimer">Preço sujeito a alteração pela loja.</div>`
+          : "";
+        const oldPriceMarkup = item.oldPrice
+          ? `<div class="offer-old is-striked">De ${item.oldPrice}</div>`
+          : "";
+        const currentPriceMarkup = item.currentPrice
+          ? `<div class="offer-price">${item.currentPrice}</div>`
+          : "";
+        const ctaMarkup = hasAffiliateUrl
+          ? `<a class="offer-cta" href="${item.affiliateUrl}" target="_blank" rel="sponsored nofollow noopener noreferrer" data-affiliate-offer="true" data-offer-id="${item.id}" data-offer-title="${item.title}" data-store="Amazon" data-destination-domain="${getDestinationDomain(item.affiliateUrl)}">Ver na Amazon</a>`
+          : `<span class="offer-cta" aria-disabled="true">Link em atualização</span>`;
+
+        return `
+        <article class="offer-card ${hasAffiliateUrl ? "" : "is-inactive"}" data-reveal>
           <div class="offer-media">
             ${item.image ? `<img src="${item.image}" alt="Imagem ilustrativa da oferta ${item.title}" onerror="this.parentElement.innerHTML='&lt;div class=&quot;offer-media-fallback&quot;&gt;Adicione a imagem em ${item.image}&lt;/div&gt;';">` : `<div class="offer-media-fallback">Imagem opcional do achado</div>`}
           </div>
           <h3>${item.title}</h3>
-          <div class="offer-old">${item.oldPrice}</div>
-          <div class="offer-price">${item.price}</div>
-          <p style="margin-top: 6px;">${item.detail}</p>
-          <div class="offer-link">⚡ ${item.linkText}</div>
+          <p class="offer-description">${item.description}</p>
+          <div class="offer-meta">
+            ${oldPriceMarkup}
+            ${currentPriceMarkup}
+            <div class="offer-status">⚡ ${hasAffiliateUrl ? "Oferta ativa" : "Link pendente"}</div>
+            ${priceNotice}
+            ${checkedAtText}
+            ${ctaMarkup}
+          </div>
         </article>
-      `).join("");
+      `;
+      }).join("");
+    }
+
+    function getDestinationDomain(url) {
+      try {
+        return new URL(url).hostname;
+      } catch (error) {
+        return "";
+      }
     }
 
     function buildComparison() {
@@ -1426,6 +1599,21 @@
             content_category: "landing_page",
             button_location: buttonLabel,
             destination_url: element.href
+          });
+        });
+      });
+
+      document.querySelectorAll("[data-affiliate-offer='true']").forEach((element) => {
+        element.addEventListener("click", () => {
+          if (typeof fbq !== "function") {
+            return;
+          }
+
+          fbq("trackCustom", "AffiliateOfferClick", {
+            offer_id: element.dataset.offerId || "",
+            content_name: element.dataset.offerTitle || "",
+            store: element.dataset.store || "",
+            destination_domain: element.dataset.destinationDomain || ""
           });
         });
       });
